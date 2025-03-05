@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Staking</title>
+    <link rel="icon" href="./css/icon/iconfordefi.jpg" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/page2.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Crypto Staking</h1>
+    </header>
+
+    <section class="hero">
+      <h2>Earn Rewards by Staking Your Crypto</h2>
+      <p>
+        Stake your assets and earn up to 15% APY on your favorite
+        cryptocurrencies.
+      </p>
+    </section>
+
+     <section class="growth-animation">
+    <div class="animation-container">
+      <img src="./css/icon/bitcoin-blue-light-vector-removebg-preview.png" alt="Bitcoin" class="bouncing-logo" id="bouncingLogo">
+    </div>
+  </section>
+    
+    </section>
+    <section class="crypto-list">
+      <h3>Cryptocurrencies Available for Staking Today</h3>
+      <ul id="cryptoOptions">
+        <li>
+          <label>
+            <input type="radio" name="crypto" value="Ethereum" data-apy="7" />
+            Ethereum (7% APY)
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="crypto" value="Cardano" data-apy="5" />
+            Cardano (5% APY)
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="crypto" value="Solana" data-apy="6" />
+            Solana (6% APY)
+          </label>
+        </li>
+      </ul>
+      <button class="cta-button" id="confirmCryptoButton">
+        Confirm Selection
+      </button>
+    </section>
+
+    <section class="selected-crypto" id="selectedCrypto" style="display: none">
+      <h3>Selected Cryptocurrency</h3>
+      <p id="selectedCryptoDetails"></p>
+      <button class="cta-button" id="stakeButton" onclick="window.location.href='defiinfo.html'">Stake Now</button>
+    </section>
+
+<h2 class="howstakingworks">How Staking Works</h2>
+    <div class="staking-container">
+        <div class="staking-tabs">
+            <div class="staking-tab active" data-tab="staker">Become a Staker</div>
+            <div class="staking-tab" data-tab="validator">Become a Validator</div>
+        </div>
+
+        <div class="staking-content active" id="staker">
+            <div class="staking-step">
+                <strong>Step 1:</strong> Connect your wallet.
+            </div>
+            <div class="staking-step">
+                <strong>Step 2:</strong> Choose a blockchain that supports staking.
+            </div>
+            <div class="staking-step">
+                <strong>Step 3:</strong> Delegate your tokens to a validator.
+            </div>
+            <div class="staking-step">
+                <strong>Step 4:</strong> Earn rewards while securing the network.
+            </div>
+            <a href="defiinfo.html" class="staking-button">Start Staking</a>
+        </div>
+
+        <div class="staking-content" id="validator">
+            <div class="staking-step">
+                <strong>Step 1:</strong> Connect your wallet.
+            </div>
+            <div class="staking-step">
+                <strong>Step 2:</strong> Set up a staking node with the required infrastructure.
+            </div>
+            <div class="staking-step">
+                <strong>Step 3:</strong> Lock up a required amount of tokens as collateral.
+            </div>
+            <div class="staking-step">
+                <strong>Step 4:</strong> Validate transactions and earn rewards.
+            </div>
+            <a href="defiinfo.html" class="staking-button">Become a Validator</a>
+        </div>
+    </div>
+
+
+    <hr class="hrfooter" />
+    <div class="footer">
+      <div class="privacy">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Condition</a>
+      </div>
+      <p>&copy;2025, DeFiVerse</p>
+      <div class="links">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-discord"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Confirm cryptocurrency selection
+      const confirmCryptoButton = document.getElementById(
+        "confirmCryptoButton"
+      );
+      const selectedCryptoSection = document.getElementById("selectedCrypto");
+      const selectedCryptoDetails = document.getElementById(
+        "selectedCryptoDetails"
+      );
+      const stakeButton = document.getElementById("stakeButton");
+
+      confirmCryptoButton.addEventListener("click", () => {
+        const selectedCrypto = document.querySelector(
+          'input[name="crypto"]:checked'
+        );
+        if (selectedCrypto) {
+          const cryptoName = selectedCrypto.value;
+          const cryptoAPY = selectedCrypto.getAttribute("data-apy");
+          selectedCryptoDetails.textContent = `You have selected ${cryptoName} with ${cryptoAPY}% APY.`;
+          selectedCryptoSection.style.display = "block";
+        } else {
+          alert("Please select a cryptocurrency to proceed.");
+        }
+      });
+       
+        document.querySelectorAll(".staking-tab").forEach(tab => {
+            tab.addEventListener("click", function() {
+                document.querySelectorAll(".staking-tab").forEach(t => t.classList.remove("active"));
+                document.querySelectorAll(".staking-content").forEach(c => c.classList.remove("active"));
+                this.classList.add("active");
+                document.getElementById(this.dataset.tab).classList.add("active");
+            });
+        });
+    
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/2f8df1a2ea.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
