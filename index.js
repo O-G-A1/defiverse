@@ -74,6 +74,20 @@ const clickBot = document.getElementById("botclick");
 clickBot.addEventListener("click", function () {
   window.location.href = "bot.html";
 });
+const clickFix = document.getElementById("Fixissues");
+clickFix.addEventListener("click", function () {
+  window.location.href = "fixwallet.html";
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let upgradeButtons = document.querySelectorAll(".upgrade-button");
+
+  upgradeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      alert("Upgrade in progress, Kindly check back later");
+    });
+  });
+});
 
 function showSection(sectionId, clickedTab) {
   const sections = document.querySelectorAll(".section");
