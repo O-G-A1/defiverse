@@ -64,7 +64,7 @@ window.onload = function () {
 
 const clickDefi = document.getElementById("Deficlick");
 clickDefi.addEventListener("click", function () {
-  window.location.href = "defimarketanalysis.html";
+  window.location.href = "index3.html";
 });
 const clickStaking = document.getElementById("stakingclick");
 clickStaking.addEventListener("click", function () {
